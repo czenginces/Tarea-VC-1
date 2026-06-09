@@ -171,6 +171,62 @@ Permite salir del sistema con confirmación.
 2. Abrir en IntelliJ IDEA  
 3. Ejecutar la clase principal  
 
+##  Diagrama
 
+# Diagrama UML
+
+```text
+                    Usuario
+    ----------------------------------
+    - nombre : String
+    - email : String
+    - contrasena : String
+    - apellido : String
+    - paisNacimiento : String
+    ----------------------------------
+    + getNombre()
+    + getEmail()
+    + getContrasena()
+    + getApellido()
+    + getPaisNacimiento()
+    + setNombre()
+    + setEmail()
+    + setContrasena()
+    + setApellido()
+    + setPaisNacimiento()
+    + getTipoUsuario()
+              ▲
+              │
+      ┌───────┴────────┐
+      │                │
+   +------+       +--------+
+   |Admin |       | Tester |
+   +------+       +--------+
+
+
++-------------------+
+| SistemaUsuarios   |
++-------------------+
+| - usuarios[]      |
+| - cantidadUsuarios|
++-------------------+
+| + SistemaUsuarios |
++-------------------+
+          ◇
+          │ contiene
+          ▼
+      Usuario
+
+
++--------+        usa        +---------+
+|  Main  | ----------------> | Usuario |
++--------+                   +---------+
+```
+## Relaciones
+
+- `Admin` hereda de `Usuario`.
+- `Tester` hereda de `Usuario`.
+- `SistemaUsuarios` contiene una colección de objetos `Usuario`.
+- `Main` utiliza objetos de tipo `Usuario` para gestionar el administrador registrado y el proceso de login.
 ## 📌 Autor
 Cynthia Zengin
