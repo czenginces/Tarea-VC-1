@@ -1,16 +1,25 @@
 public class Tester extends Usuario {
 
-    public Tester(String nombre, String email, String contrasena, String apellido, String paisNacimiento) {
-        super(nombre, email, contrasena, apellido, paisNacimiento);
+    private TipoTester tipoTester;
+
+    public Tester(String nombre, String apellido, String email,
+                  String password, String paisNacimiento,
+                  TipoTester tipoTester) {
+
+        super(nombre, apellido, email, password, paisNacimiento);
+        this.tipoTester = tipoTester;
+    }
+
+    public TipoTester getTipoTester() {
+        return tipoTester;
+    }
+
+    public void setTipoTester(TipoTester tipoTester) {
+        this.tipoTester = tipoTester;
     }
 
     @Override
-    public String getTipoUsuario() {
-        return "Tester";
-    }
-
-    @Override
-    public String mostrarPermisos() {
-        return "Puede realizar pruebas del sistema.";
+    public String obtenerTipoUsuario() {
+        return "Tester " + tipoTester;
     }
 }

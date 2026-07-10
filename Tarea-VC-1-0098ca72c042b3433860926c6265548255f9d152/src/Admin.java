@@ -1,16 +1,12 @@
 public class Admin extends Usuario {
 
-    public Admin(String nombre, String email, String contrasena, String apellido, String paisNacimiento) {
-        super(nombre, email, contrasena, apellido, paisNacimiento);
+    public Admin(String nombre, String apellido, String email,
+                 String password, String paisNacimiento) {
+        super(nombre, apellido, email, password, paisNacimiento);
     }
 
     @Override
-    public String getTipoUsuario() {
+    public String obtenerTipoUsuario() {
         return "Administrador";
-    }
-
-    @Override
-    public String mostrarPermisos() {
-        return "Puede registrar, listar y buscar usuarios.";
     }
 }

@@ -1,16 +1,17 @@
 public abstract class Usuario {
 
     private String nombre;
-    private String email;
-    private String contrasena;
     private String apellido;
+    private String email;
+    private String password;
     private String paisNacimiento;
 
-    public Usuario(String nombre, String email, String contrasena, String apellido, String paisNacimiento) {
+    public Usuario(String nombre, String apellido, String email,
+                   String password, String paisNacimiento) {
         this.nombre = nombre;
-        this.email = email;
-        this.contrasena = contrasena;
         this.apellido = apellido;
+        this.email = email;
+        this.password = password;
         this.paisNacimiento = paisNacimiento;
     }
 
@@ -18,32 +19,49 @@ public abstract class Usuario {
         return nombre;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getContrasena() {
-        return contrasena;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getApellido() {
         return apellido;
     }
 
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getPaisNacimiento() {
         return paisNacimiento;
     }
 
-    public abstract String getTipoUsuario();
+    public void setPaisNacimiento(String paisNacimiento) {
+        this.paisNacimiento = paisNacimiento;
+    }
 
-    public abstract String mostrarPermisos();
+    public abstract String obtenerTipoUsuario();
 
-    public void mostrarDatos() {
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Apellido: " + apellido);
-        System.out.println("Email: " + email);
-        System.out.println("País de nacimiento: " + paisNacimiento);
-        System.out.println("Tipo de usuario: " + getTipoUsuario());
-        System.out.println("Permisos: " + mostrarPermisos());
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + " " + apellido +
+                " | Email: " + email +
+                " | País: " + paisNacimiento +
+                " | Tipo: " + obtenerTipoUsuario();
     }
 }
